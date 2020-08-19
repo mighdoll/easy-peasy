@@ -1,10 +1,12 @@
 import { createSimpleProduce, get } from './lib';
+import { combineReducers } from 'redux';
 
 export default function createReducer(
   disableImmer,
   _actionReducersDict,
   _customReducers,
   _computedProperties,
+  postActionReducer,
 ) {
   const simpleProduce = createSimpleProduce(disableImmer);
 
@@ -38,10 +40,15 @@ export default function createReducer(
 
   const rootReducer = (state, action) => {
     const stateAfterActions = reducerForActions(state, action);
-    const next =
+    const stateAfterCustom =
       _customReducers.length > 0
         ? reducerForCustomReducers(stateAfterActions, action)
         : stateAfterActions;
+
+    const next = postActionReducer
+      ? postActionReducer(stateAfterCustom, action)
+      : stateAfterCustom;
+
     if (state !== next) {
       _computedProperties.forEach(({ parentPath, bindComputedProperty }) => {
         const prop = get(parentPath, next);

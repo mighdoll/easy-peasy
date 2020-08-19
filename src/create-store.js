@@ -29,6 +29,7 @@ export default function createStore(model, options = {}) {
     mockActions = false,
     name: storeName = `EasyPeasyStore`,
     reducerEnhancer = (rootReducer) => rootReducer,
+    postActionReducer = undefined
   } = options;
 
   const bindReplaceState = (modelDef) => {
@@ -58,6 +59,7 @@ export default function createStore(model, options = {}) {
       model: modelDefinition,
       reducerEnhancer,
       references,
+      postActionReducer,
     });
   };
 

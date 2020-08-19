@@ -337,6 +337,7 @@ export interface EasyPeasyConfig<
   mockActions?: boolean;
   name?: string;
   reducerEnhancer?: (reducer: ReduxReducer<any, any>) => ReduxReducer<any, any>;
+  postActionReducer?: ReduxReducer<any, any>;
 }
 
 export interface MockedAction {

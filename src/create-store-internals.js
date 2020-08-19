@@ -8,6 +8,7 @@ export default function createStoreInternals({
   model,
   reducerEnhancer,
   references,
+  postActionReducer,
 }) {
   const {
     _actionCreatorDict,
@@ -28,6 +29,7 @@ export default function createStoreInternals({
     _actionReducersDict,
     _customReducers,
     _computedProperties,
+    postActionReducer,
   );
 
   return {
