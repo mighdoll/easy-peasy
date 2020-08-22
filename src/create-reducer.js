@@ -19,6 +19,9 @@ export default function createReducer(
   const reducerForActions = (state, action) => {
     const actionReducer = _actionReducersDict[action.type];
     if (actionReducer) {
+      if (action.type.includes('setChartView')) {
+        console.log('running setChartView reducer');
+      }
       return runActionReducerAtPath(
         state,
         action,
@@ -39,11 +42,18 @@ export default function createReducer(
   };
 
   const rootReducer = (state, action) => {
+    console.log('rootReducer action:', action);
+    console.log('rootReducer state dashItems:', state?.dashboard?.dashItems);
     const stateAfterActions = reducerForActions(state, action);
     const stateAfterCustom =
       _customReducers.length > 0
         ? reducerForCustomReducers(stateAfterActions, action)
         : stateAfterActions;
+
+    console.log(
+      'rootReducer stateAfterCustom dashItems:',
+      stateAfterCustom?.dashboard?.dashItems,
+    );
 
     const next = postActionReducer
       ? postActionReducer(stateAfterCustom, action)
