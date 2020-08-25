@@ -1,7 +1,7 @@
 {
-  "name": "easy-peasy",
-  "version": "3.4.0-beta.1",
-  "description": "Vegetarian friendly state for React",
+  "name": "patched-peasy",
+  "version": "3.4.0-b1",
+  "description": "easy-peasy with a some patches applied",
   "license": "MIT",
   "main": "dist/easy-peasy.js",
   "umd:main": "dist/easy-peasy.umd.js",
