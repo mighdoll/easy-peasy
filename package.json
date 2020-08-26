@@ -16,9 +16,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ctrlplusb/easy-peasy.git"
+    "url": "https://github.com/mighdoll/patched-peasy.git"
   },
-  "homepage": "https://easy-peasy.now.sh",
+  "homepage": "https://github.com/mighdoll/patched-peasy",
   "author": "Sean Matheson <sean@ctrlplusb.com>",
   "keywords": [
     "react",
